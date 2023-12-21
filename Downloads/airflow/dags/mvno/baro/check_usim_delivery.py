@@ -65,7 +65,7 @@ on_task_failure_ = fn.partial(
         "retry_delay": timedelta(seconds=10),
         "on_failure_callback": on_task_failure_,
     },
-    tags=["poc"],
+    tags=["mvno","baro"],
 )
 def check_usim_delivery():
     """
