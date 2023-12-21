@@ -1,0 +1,52 @@
+{
+  "delivery.http_connection": {
+    "conn_type": "http",
+    "description": "\ubc30\uc1a1\uc11c\ubc84",
+    "login": "",
+    "password": null,
+    "host": "host.docker.internal",
+    "port": 8000,
+    "schema": "http",
+    "extra": "{}"
+  },
+  "mvno.kafka_connection.airflow": {
+    "conn_type": "kafka",
+    "description": "MVNO \uce74\ud504\uce74 \uc5f0\uacb0\uc815\ubcf4 - \uadf8\ub8f9 airflow",
+    "login": "",
+    "password": null,
+    "host": "",
+    "port": null,
+    "schema": "",
+    "extra": "{\"bootstrap.servers\": \"kafka1:19092,kafka2:19093,kafka3:19094\", \"group.id\": \"airflow\"}"
+  },
+  "mvno.kafka_connection.airflow-kafka_python": {
+    "conn_type": "kafka",
+    "description": "MVNO \uce74\ud504\uce74 \uc5f0\uacb0\uc815\ubcf4 - \uadf8\ub8f9 airflow (kafka_python \uc6a9)",
+    "login": "",
+    "password": null,
+    "host": "",
+    "port": null,
+    "schema": "",
+    "extra": "{\"bootstrap_servers\": \"kafka1:19092,kafka2:19093,kafka3:19094\", \"group_id\": \"airflow\"}"
+  },
+  "mvno.slack_webhook_connection.task_failure": {
+    "conn_type": "slackwebhook",
+    "description": "MVNO \uc2ac\ub799\uc6f9\ud6c5 - \uc791\uc5c5\uc624\ub958",
+    "login": "",
+    "password": "T032TUYK05T/B0671NV28EN/qThpTkKBxgXyvMJwPh5euWdi",
+    "host": "https://hooks.slack.com/services/",
+    "port": null,
+    "schema": "",
+    "extra": "{\"timeout\": null}"
+  },
+  "poc.http_connection": {
+    "conn_type": "http",
+    "description": "POC API \uc11c\ubc84",
+    "login": "",
+    "password": null,
+    "host": "host.docker.internal",
+    "port": 8000,
+    "schema": "http",
+    "extra": "{}"
+  }
+}

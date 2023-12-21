@@ -1,0 +1,10 @@
+{
+    "delivery.health_check_endpoint": "/hello",
+    "delivery.inquiry_endpoint": "/pocmng/check-delivery-status",
+    "mvno.usim_order_expiration_secs": 1800,
+    "mvno.usim_order_topics": "usim_order",
+    "poc.health_check_endpoint": "/hello",
+    "poc.usim_order_cancel_endpoint": "/pocmng/cancle-order-info"
+
+    
+}
