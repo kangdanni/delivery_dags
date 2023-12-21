@@ -4,7 +4,7 @@
     "mvno.usim_order_expiration_secs": 1800,
     "mvno.usim_order_topics": "usim_order",
     "poc.health_check_endpoint": "/hello",
-    "poc.usim_order_cancel_endpoint": "/pocmng/cancle-order-info"
-
+    "poc.usim_order_cancel_endpoint": "/pocmng/cancle-order-info",
+    "poc.url":"vpce-0a4ac7aa507d7c44a-ovydyw8s.execute-api.ap-northeast-2.vpce.amazonaws.com"
     
 }

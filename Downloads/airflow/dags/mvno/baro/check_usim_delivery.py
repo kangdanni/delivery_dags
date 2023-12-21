@@ -56,8 +56,9 @@ on_task_failure_ = fn.partial(
     start_date=pendulum.datetime(2023, 11, 1, tz="Asia/Seoul"),
     schedule=None,
     catchup=False,
-    params={"purc_rcpt_id": Param("", type="string", description="주문번호", section="필수"),
-            "book_id": Param("", type="string", description="업체주문번호", section="필수")},
+    params={"orderId": Param("", type="string", description="주문번호", section="필수"),
+            # "book_id": Param("", type="string", description="업체주문번호", section="필수")
+            },
     default_args={
         "owner": "poc",
         "retries": 3,
@@ -115,9 +116,14 @@ def check_usim_delivery():
     delivery_check_task = HttpOperator(
         task_id="check_delivery",
         http_conn_id="delivery.http_connection",
-        method="GET",
-        endpoint="{{ var.value.get('delivery.inquiry_endpoint') }}/{{ params.order_id }}",
+        method="POST",
+        endpoint="{{ var.value.get('delivery.inquiry_endpoint') }}",
         headers={"Content-Type": "application/json"},
+        data=json.dumps(
+            {
+                "purc_rcpt_id": "{{ params.orderId }}"
+            }
+        ),
         response_filter=lambda response: json.loads(response.text),
         log_response=True,
     )
@@ -132,8 +138,7 @@ def check_usim_delivery():
         endpoint="{{ var.value.get('poc.usim_order_cancel_endpoint') }}",
         data=json.dumps(
             {
-                "purc_rcpt_id": "{{ params.purc_rcpt_id }}",
-                "book_id": "{{ params.book_id }}",
+                "purc_rcpt_id": "{{ params.orderId }}"
             }
         ),
         headers={"Content-Type": "application/json"},
